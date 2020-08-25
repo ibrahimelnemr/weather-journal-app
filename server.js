@@ -21,3 +21,20 @@ const cors = require('cors');
 app.use(express.static('website'));
 
 // Setup Server
+const port = 8000;
+const server = app.listen(port, active)
+
+function active() {
+  console.log("server active");
+  console.log(`running on localhost: ${port}`)
+}
+
+app.get('/projectData', test);
+
+function test (req, res) {
+  res.send(projectData);
+};
+
+app.post('/projectData', (req,res) => {
+  projectData.push(req.body);
+});
