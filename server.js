@@ -1,5 +1,5 @@
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+const projectData = {};
 
 // Require Express to run server and routes
 
@@ -38,6 +38,18 @@ res.send(projectData);
 
 app.post('/add', (req,res) => {
 
-  projectData.push(req.body);
-  
+  projectData.temperature = req.body.temperature;
+  projectData.date = req.body.date;
+  projectData.userResponse = req.body.userResponse;
+
+  res.send(projectData);
+
 });
+
+app.get('/add', (req,res) => {
+
+  res.send(projectData);
+
+});
+
+// lsof -nti:8000 | xargs kill -9
