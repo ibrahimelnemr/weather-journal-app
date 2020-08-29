@@ -29,12 +29,15 @@ function active() {
   console.log(`running on localhost: ${port}`)
 }
 
-app.get('/projectData', test);
+app.get('/all', (req, res) => {
 
-function test (req, res) {
-  res.send(projectData);
-};
+res.send(projectData);
 
-app.post('/projectData', (req,res) => {
+});
+
+
+app.post('/add', (req,res) => {
+
   projectData.push(req.body);
+  
 });
