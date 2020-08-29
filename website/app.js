@@ -11,7 +11,7 @@ document.getElementById('generate').addEventListener('click', action);
 
 function action() {
 
-  let userResponse = document.getElementById('feelings').value;
+  const userResponse = document.getElementById('feelings').value;
   const zip = document.getElementById('zip').value;
 
   getData(baseURL+zip+apiKey)
@@ -19,10 +19,11 @@ function action() {
     console.log(data);
     console.log("success");
     sendData('/add', {temperature: data.main.temp, date:data.dt, userResponse:userResponse});
+    let date = data.dt;
   })
 
   .then (
-    changeUI()
+    changeUI(date)
   )
 }
 
