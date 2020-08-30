@@ -19,12 +19,9 @@ function action() {
     console.log(data);
     console.log("success");
     sendData('/add', {temperature: data.main.temp, date:data.dt, userResponse:userResponse});
-    let date = data.dt;
   })
 
-  .then (
-    changeUI(date)
-  )
+  .then (setTimeout(changeUI, 4000))
 }
 
 
@@ -60,6 +57,7 @@ const res = await fetch(url, {
 try {
   const returnedData = await res.json();
   console.log(returnedData);
+  return returnedData;
 } catch (error) {
   console.log("error", error)
 }
@@ -68,7 +66,7 @@ try {
 
 /**** changeUI ****/
 const changeUI = async () => {
-  const req = await fetch ('/all');
+  const req = await fetch ('/add');
   try {
     const all = await req.json();
     console.log(all);
@@ -79,6 +77,7 @@ const changeUI = async () => {
     document.getElementById('date').innerHTML = newDate;
     document.getElementById('temp').innerHTML = all.temperature;
     document.getElementById('content').innerHTML = all.userResponse;
+    return all;
   } catch(error) {
     console.log("error", error);
   }

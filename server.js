@@ -29,13 +29,6 @@ function active() {
   console.log(`running on localhost: ${port}`)
 }
 
-app.get('/all', (req, res) => {
-
-res.send(projectData);
-
-});
-
-
 app.post('/add', (req,res) => {
 
   projectData.temperature = req.body.temperature;
@@ -46,10 +39,11 @@ app.post('/add', (req,res) => {
 
 });
 
-app.get('/add', (req,res) => {
+app.get('/add', (req, res) => {
+console.log(projectData);
+res.send(projectData);
 
-  res.send(projectData);
+})
 
-});
 
 // lsof -nti:8000 | xargs kill -9
