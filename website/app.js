@@ -3,7 +3,7 @@
 // Create a new date instance dynamically with JS
 
 const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip='
-const apiKey = '&APPID=85c0955723ea8d8ca16a480fd439457a'
+const apiKey = '&APPID=85c0955723ea8d8ca16a480fd439457a&units=imperial'
 
 document.getElementById('generate').addEventListener('click', action);
 
