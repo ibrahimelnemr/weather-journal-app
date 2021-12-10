@@ -5,9 +5,26 @@
 const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip='
 const apiKey = '&APPID=85c0955723ea8d8ca16a480fd439457a&units=imperial'
 
-document.getElementById('generate').addEventListener('click', action);
+generateButton = document.getElementById('generate');
+
+generateButton.addEventListener('click', action);
+
+generateButton.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    validate(e);
+  }
+});
+
+function validate(e) {
+  const text = e.target.value;
+}
+
 
 /*** function action ***/
+
+//set default value of zipcode
+document.getElementById('zip').value = 85224;
+
 
 function action() {
 
@@ -18,6 +35,20 @@ function action() {
   .then(function (data) {
     console.log(data);
     console.log("success");
+
+    // CHANGE UI
+
+    let d = new Date(data.dt * 1000);
+    let newDate = 'Month: '+ (d.getMonth()+1)+' Day: '+ d.getDate()+' Year: '+ d.getFullYear();
+    let city = data.name;
+
+    document.getElementById('date').innerHTML = newDate;
+    document.getElementById('temp').innerHTML = data.main.temp + "˚C";
+    document.getElementById('city').innerHTML = city;
+    document.getElementById('content').innerHTML = userResponse;
+
+
+
     sendData('/add', {temperature: data.main.temp, date:data.dt, userResponse:userResponse});
   })
 
