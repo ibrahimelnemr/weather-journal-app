@@ -43,10 +43,9 @@ function action() {
     let city = data.name;
 
     document.getElementById('date').innerHTML = newDate;
-    document.getElementById('temp').innerHTML = data.main.temp + "˚C";
+    document.getElementById('temp').innerHTML = Math.round((5/9)*(data.main.temp-32)) + "˚C / " + Math.round(data.main.temp) + "˚F";
     document.getElementById('city').innerHTML = city;
     document.getElementById('content').innerHTML = userResponse;
-
 
 
     sendData('/add', {temperature: data.main.temp, date:data.dt, userResponse:userResponse});
