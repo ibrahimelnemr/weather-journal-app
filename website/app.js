@@ -23,7 +23,7 @@ function validate(e) {
 /*** function action ***/
 
 //set default value of zipcode
-document.getElementById('zip').value = 85224;
+document.getElementById('zip').value = 94102;
 
 
 function action() {
