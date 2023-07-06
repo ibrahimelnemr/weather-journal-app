@@ -1,3 +1,9 @@
-The third project for the Udacity Front End Nanodegree.
+# Overview
+The third project for the Udacity front-end web development certification.
 
-## https://iwelnemr.github.io/weather-journal-app
+# Features
+Takes as input any US zip code, and queries the openweathermap API to fetch the current temperature at the location.
+
+# Deployment
+
+https://iwelnemr.github.io/weather-journal-app
